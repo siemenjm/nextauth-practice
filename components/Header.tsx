@@ -29,7 +29,7 @@ export default function Header() {
               You are currently not logged in
             </p>
             <a
-              href="/api/auth/login"
+              href="/api/auth/signin"
               onClick={handleLogin}
               className={styles.loginButton}
             >
@@ -43,7 +43,7 @@ export default function Header() {
               Logged in as {`${session.user.name}`}
             </p>
             <a
-              href="/api/auth/logout"
+              href="/api/auth/signout"
               onClick={handleLogout}
               className={styles.loginButton}
             >
@@ -64,7 +64,7 @@ export default function Header() {
             <Link href="/ssr">SSR</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/protected-page">Protected Page</Link>
+            <Link href="/protected">Protected Page</Link>
           </li>
         </ul>
       </nav>
