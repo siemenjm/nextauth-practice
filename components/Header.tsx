@@ -1,22 +1,50 @@
+import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { SyntheticEvent } from 'react';
 import styles from '../styles/Header.module.css';
 
 export default function Header() {
+  const { data: session } = useSession();
+
+  console.log(session);
+
   function handleLogin(e: SyntheticEvent) {
     e.preventDefault();
-    // TODO: add login function here
+    signIn();
+  }
+
+  function handleLogout(e: SyntheticEvent) {
+    e.preventDefault();
+    signOut();
   }
 
   return (
     <header>
-      <div className={styles.loggedInStatusContainer}>
-        <p className={styles.loggedInStatusMessage}>
-          You are currently not logged in
-        </p>
-        <a onClick={handleLogin} className={styles.loginButton}>
-          Log In
-        </a>
+      <div
+        className={`${styles.currentStatusContainer} ${
+          session && styles.loggedInStatusContainer
+        }`}
+      >
+        {!session && (
+          <>
+            <p className={styles.currentStatusMessage}>
+              You are currently not logged in
+            </p>
+            <a onClick={handleLogin} className={styles.loginButton}>
+              Log In
+            </a>
+          </>
+        )}
+        {session?.user && (
+          <>
+            <p className={styles.currentStatusMessage}>
+              Logged in as {`${session.user.name}`}
+            </p>
+            <a onClick={handleLogout} className={styles.loginButton}>
+              Log Out
+            </a>
+          </>
+        )}
       </div>
       <nav>
         <ul className={styles.navItems}>

@@ -1,10 +1,14 @@
-.loggedInStatusContainer {
+.currentStatusContainer {
   background-color: pink;
   min-height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+}
+
+.loggedInStatusContainer {
+  background-color: lightgreen;
 }
 
 .loginButton {
