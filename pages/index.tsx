@@ -18,7 +18,7 @@ export default function Home() {
           This is an example site to demonstrate how to use{' '}
           <a href="https://next-auth.js.org">NextAuth.js</a> for authentication.
         </p>
-        <h2>You are currently on the Home page.</h2>
+        <h2>You are currently on the Home page, which is not protected.</h2>
       </Layout>
     </>
   );
