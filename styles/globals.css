@@ -48,3 +48,11 @@ main {
   gap: 1.5rem;
   padding: 1rem;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 5px black;
+}
