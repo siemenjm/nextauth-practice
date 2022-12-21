@@ -6,8 +6,6 @@ import styles from '../styles/Header.module.css';
 export default function Header() {
   const { data: session } = useSession();
 
-  console.log(session);
-
   function handleLogin(e: SyntheticEvent) {
     e.preventDefault();
     signIn();
