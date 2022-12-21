@@ -1,6 +1,9 @@
+import { useSession } from 'next-auth/react';
 import Layout from '../components/Layout';
 
 export default function csr() {
+  const { data: session } = useSession();
+
   return (
     <Layout>
       <h1>Client Side Rendering</h1>
@@ -22,6 +25,11 @@ export default function csr() {
         The disadvantage of <strong>useSession()</strong> is that it requires
         client side JavaScript.
       </p>
+      {session ? (
+        <h2>You are logged in!</h2>
+      ) : (
+        <h2>You are NOT logged in...</h2>
+      )}
     </Layout>
   );
 }
