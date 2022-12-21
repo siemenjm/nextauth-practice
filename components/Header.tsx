@@ -28,7 +28,11 @@ export default function Header() {
             <p className={styles.currentStatusMessage}>
               You are currently not logged in
             </p>
-            <a onClick={handleLogin} className={styles.loginButton}>
+            <a
+              href="/api/auth/login"
+              onClick={handleLogin}
+              className={styles.loginButton}
+            >
               Log In
             </a>
           </>
@@ -38,7 +42,11 @@ export default function Header() {
             <p className={styles.currentStatusMessage}>
               Logged in as {`${session.user.name}`}
             </p>
-            <a onClick={handleLogout} className={styles.loginButton}>
+            <a
+              href="/api/auth/logout"
+              onClick={handleLogout}
+              className={styles.loginButton}
+            >
               Log Out
             </a>
           </>
