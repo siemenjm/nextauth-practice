@@ -9,6 +9,10 @@ export default async function handler(
   const session = await unstable_getServerSession(req, res, authOptions);
 
   if (session) {
+    console.log(
+      'This is protected content from the /api/examples/protected API route. You can access this content because you are signed in.'
+    );
+
     return res.send({
       content:
         'This is protected content from the /api/examples/protected API route. You can access this content because you are signed in.',
@@ -19,4 +23,8 @@ export default async function handler(
     error:
       'You must be signed in to view the content from the /api/examples/protected API route.',
   });
+
+  console.log(
+    'You must be signed in to view the content from the /api/examples/protected API route.'
+  );
 }
