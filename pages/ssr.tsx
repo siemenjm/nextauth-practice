@@ -1,10 +1,11 @@
 import { GetServerSidePropsContext } from 'next';
-import { Session, unstable_getServerSession } from 'next-auth';
+import { unstable_getServerSession } from 'next-auth';
+import { useSession } from 'next-auth/react';
 import Layout from '../components/Layout';
 import { authOptions } from './api/auth/[...nextauth]';
 
-export default function ssr({ session }: { session: Session }) {
-  console.log(session);
+export default function ssr() {
+  const { data: session } = useSession();
 
   return (
     <Layout>
@@ -26,6 +27,11 @@ export default function ssr({ session }: { session: Session }) {
         The disadvantage of Server Side Rendering is that this page is slower to
         render.
       </p>
+      {session ? (
+        <h2>You are logged in!</h2>
+      ) : (
+        <h2>You are NOT logged in...</h2>
+      )}
     </Layout>
   );
 }
